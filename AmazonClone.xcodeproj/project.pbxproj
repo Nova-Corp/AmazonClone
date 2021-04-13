@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		842FF5A72625AE0800F597A4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842FF5A62625AE0800F597A4 /* MainViewController.swift */; };
+		842FF5A92625AE3E00F597A4 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842FF5A82625AE3E00F597A4 /* CustomSegmentedControl.swift */; };
 		847C46EC2625581E002274DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C46EB2625581E002274DD /* AppDelegate.swift */; };
 		847C46EE2625581E002274DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C46ED2625581E002274DD /* SceneDelegate.swift */; };
 		847C46F02625581E002274DD /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C46EF2625581E002274DD /* CustomTabBarController.swift */; };
@@ -44,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		842FF5A62625AE0800F597A4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		842FF5A82625AE3E00F597A4 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		847C46E82625581E002274DD /* AmazonClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmazonClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		847C46EB2625581E002274DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		847C46ED2625581E002274DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,7 +161,6 @@
 			children = (
 				847C47222625602F002274DD /* Extension */,
 				847C46F726255822002274DD /* Assets.xcassets */,
-				847C46F926255822002274DD /* LaunchScreen.storyboard */,
 				847C46FC26255822002274DD /* Info.plist */,
 				847C46F42625581E002274DD /* AmazonClone.xcdatamodeld */,
 			);
@@ -177,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				847C46F12625581E002274DD /* Main.storyboard */,
+				847C46F926255822002274DD /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -185,6 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				842FF5A52625AD0900F597A4 /* TabBar */,
+				842FF5A62625AE0800F597A4 /* MainViewController.swift */,
+				842FF5A82625AE3E00F597A4 /* CustomSegmentedControl.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -341,10 +347,12 @@
 				847C46EE2625581E002274DD /* SceneDelegate.swift in Sources */,
 				847C472C26256048002274DD /* UILabel+Extension.swift in Sources */,
 				847C473026256048002274DD /* UITableViewCell+Extension.swift in Sources */,
+				842FF5A92625AE3E00F597A4 /* CustomSegmentedControl.swift in Sources */,
 				84D7AF68262564F700B65657 /* ChildrenViewController.swift in Sources */,
 				847C472A26256048002274DD /* UIViewController+Extension.swift in Sources */,
 				847C472D26256048002274DD /* UIButton+Extension.swift in Sources */,
 				847C472B26256048002274DD /* CardView.swift in Sources */,
+				842FF5A72625AE0800F597A4 /* MainViewController.swift in Sources */,
 				847C46F62625581E002274DD /* AmazonClone.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
