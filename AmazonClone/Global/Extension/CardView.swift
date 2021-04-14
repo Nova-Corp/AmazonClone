@@ -29,7 +29,7 @@ class CardView: UIView {
         set {
             self.layer.cornerRadius = newValue
             self.layer.masksToBounds = false
-            self.clipsToBounds = false
+            self.clipsToBounds = true
         }
     }
 
