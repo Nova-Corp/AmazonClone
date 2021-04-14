@@ -9,10 +9,17 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    @IBOutlet weak var logoTopConstraint: NSLayoutConstraint!
+    let homeViewController = HomeViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
     }
+    
     @IBAction func segmentSelected(_ sender: CustomSegmentedControl) {
         print(sender.selectedSegmentedIndex)
     }
 }
+

@@ -25,7 +25,7 @@ class CustomTabBarController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let homeVC = HomeViewController.instantiate()
+        let homeVC = MainViewController.instantiate()
         let findVC = CloudViewController.instantiate()
         let downloadVC = FolderViewController.instantiate()
         let myStuffVC = TrayViewController.instantiate()
