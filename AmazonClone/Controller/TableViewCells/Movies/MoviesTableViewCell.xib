@@ -44,6 +44,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="detailsButton" destination="GZz-Jd-xYz" id="SX3-d7-4dW"/>
                 <outlet property="moviesCollectionView" destination="qUG-Lb-Wd7" id="RLv-A2-mvS"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="145.98214285714286"/>

@@ -13,7 +13,8 @@ class MoviesTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
     
     var cellType: CollectionViewCellType?
     
-
+    @IBOutlet weak var detailsButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -30,6 +31,11 @@ class MoviesTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoviePosterCollectionViewCell.identifier, for: indexPath) as! MoviePosterCollectionViewCell
+        
+        if cellType == CollectionViewCellType.Square {
+            cell.configureGradientWithTitle(title: "English")
+        }
+        
         return cell
     }
     

@@ -15,9 +15,9 @@ enum CollectionViewCellType {
     var size: CGSize {
         switch self {
         case .Rectangle:
-            return CGSize(width: 210, height: 170)
+            return CGSize(width: 200, height: 100)
         case .Square:
-            return CGSize(width: 180, height: 180)
+            return CGSize(width: 200, height: 200)
         }
     }
 }

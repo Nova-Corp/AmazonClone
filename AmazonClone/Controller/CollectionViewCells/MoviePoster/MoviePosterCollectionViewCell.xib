@@ -46,6 +46,9 @@
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="185" height="108"/>
+            <connections>
+                <outlet property="thumbnailImageView" destination="ivC-FR-HUh" id="rov-Zp-Rcs"/>
+            </connections>
             <point key="canvasLocation" x="229.71014492753625" y="141.29464285714286"/>
         </collectionViewCell>
     </objects>
