@@ -16,11 +16,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZz-Jd-xYz">
-                        <rect key="frame" x="8" y="8" width="84" height="27"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                        <state key="normal" title="Latest Movies"/>
-                    </button>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="qUG-Lb-Wd7">
                         <rect key="frame" x="8" y="43" width="304" height="119"/>
                         <color key="backgroundColor" red="0.06373233348" green="0.089615233239999995" blue="0.1137294397" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -31,20 +26,28 @@
                             <inset key="sectionInset" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLL-AR-dTL">
+                        <rect key="frame" x="8" y="8" width="84" height="27"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="Latest Movies">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" red="0.06373233348" green="0.089615233239999995" blue="0.1137294397" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
-                    <constraint firstItem="GZz-Jd-xYz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="1PD-Bf-2Xf"/>
-                    <constraint firstItem="qUG-Lb-Wd7" firstAttribute="leading" secondItem="GZz-Jd-xYz" secondAttribute="leading" id="EAw-GL-oMF"/>
                     <constraint firstAttribute="trailing" secondItem="qUG-Lb-Wd7" secondAttribute="trailing" constant="8" id="F9C-qg-tWu"/>
-                    <constraint firstItem="qUG-Lb-Wd7" firstAttribute="top" secondItem="GZz-Jd-xYz" secondAttribute="bottom" constant="8" id="OJr-Sk-oYe"/>
-                    <constraint firstItem="GZz-Jd-xYz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Qtb-i3-f9W"/>
+                    <constraint firstItem="qUG-Lb-Wd7" firstAttribute="top" secondItem="hLL-AR-dTL" secondAttribute="bottom" constant="8" id="HoV-iU-c5m"/>
+                    <constraint firstItem="qUG-Lb-Wd7" firstAttribute="leading" secondItem="hLL-AR-dTL" secondAttribute="leading" id="LiM-WF-YwJ"/>
                     <constraint firstAttribute="bottom" secondItem="qUG-Lb-Wd7" secondAttribute="bottom" constant="8" id="d94-pG-97y"/>
+                    <constraint firstItem="hLL-AR-dTL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="fF7-Bh-I93"/>
+                    <constraint firstItem="hLL-AR-dTL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="m9c-7r-xh4"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="detailsButton" destination="GZz-Jd-xYz" id="SX3-d7-4dW"/>
+                <outlet property="detailsButton" destination="hLL-AR-dTL" id="GwZ-TW-TNE"/>
                 <outlet property="moviesCollectionView" destination="qUG-Lb-Wd7" id="RLv-A2-mvS"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="145.98214285714286"/>

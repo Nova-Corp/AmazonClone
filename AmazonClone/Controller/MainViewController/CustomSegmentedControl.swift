@@ -12,9 +12,8 @@ import UIKit
 class CustomSegmentedControl: UIControl {
     var buttons = [UIButton]()
     var selector: UIView!
-    
+
     var selectedSegmentedIndex = 0
-    
 
     @IBInspectable
     var commaSeparatedButtonTitles: String = "" {
@@ -76,20 +75,17 @@ class CustomSegmentedControl: UIControl {
             stackView.topAnchor.constraint(equalTo: self.topAnchor),
             stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             stackView.leftAnchor.constraint(equalTo: self.leftAnchor),
-            stackView.rightAnchor.constraint(equalTo: self.rightAnchor),
+            stackView.rightAnchor.constraint(equalTo: self.rightAnchor)
         ])
     }
 
     @objc func segmentButtonTapped(button: UIButton) {
-        for (buttonIndex, btn) in buttons.enumerated() {
-            if btn == button {
-                
-                selectedSegmentedIndex = buttonIndex
-                
-                let selectorStartPosition = frame.width / CGFloat(buttons.count) * CGFloat(buttonIndex)
-                UIView.animate(withDuration: 0.3) { [weak self] in
-                    self?.selector.frame.origin.x = selectorStartPosition + 10
-                }
+        for (buttonIndex, btn) in buttons.enumerated() where btn == button {
+            selectedSegmentedIndex = buttonIndex
+
+            let selectorStartPosition = frame.width / CGFloat(buttons.count) * CGFloat(buttonIndex)
+            UIView.animate(withDuration: 0.3) { [weak self] in
+                self?.selector.frame.origin.x = selectorStartPosition + 10
             }
         }
         sendActions(for: .valueChanged)

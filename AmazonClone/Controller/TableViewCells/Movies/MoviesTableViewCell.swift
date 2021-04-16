@@ -8,13 +8,13 @@
 
 import UIKit
 
-class MoviesTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    @IBOutlet var moviesCollectionView: UICollectionView!
-    
+class MoviesTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayout {
     var cellType: CollectionViewCellType?
-    
-    @IBOutlet weak var detailsButton: UIButton!
-    
+    var detailsButtonType: ButtonType?
+
+    @IBOutlet var moviesCollectionView: UICollectionView!
+    @IBOutlet var detailsButton: UIButton!
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -22,25 +22,39 @@ class MoviesTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
         moviesCollectionView.dataSource = self
 
         let moviePosterCollectionNib = UINib(nibName: MoviePosterCollectionViewCell.identifier, bundle: nil)
-        moviesCollectionView.register(moviePosterCollectionNib, forCellWithReuseIdentifier: MoviePosterCollectionViewCell.identifier)
+        moviesCollectionView.register(moviePosterCollectionNib,
+                                      forCellWithReuseIdentifier: MoviePosterCollectionViewCell.identifier)
     }
+}
 
+extension MoviesTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         5
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoviePosterCollectionViewCell.identifier, for: indexPath) as! MoviePosterCollectionViewCell
-        
-        if cellType == CollectionViewCellType.Square {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: MoviePosterCollectionViewCell.identifier,
+            for: indexPath) as? MoviePosterCollectionViewCell
+            else {return UICollectionViewCell()}
+
+        if cellType == CollectionViewCellType.square {
             cell.configureGradientWithTitle(title: "English")
         }
-        
+
+        if detailsButtonType == ButtonType.more {
+            detailsButton.isUserInteractionEnabled = true
+            detailsButton.setTitle("Movies", for: .normal)
+            detailsButton.setImage(UIImage(systemName: "chevron.left")!, for: .normal)
+        }
+
         return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return cellType?.size ?? CollectionViewCellType.Rectangle.size
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return cellType?.size ?? CollectionViewCellType.rectangle.size
     }
-    
 }

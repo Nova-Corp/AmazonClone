@@ -9,17 +9,25 @@
 import UIKit
 
 enum CollectionViewCellType {
-    case Rectangle
-    case Square
+    case rectangle
+    case square
+    case longRectangle
 
     var size: CGSize {
         switch self {
-        case .Rectangle:
+        case .rectangle:
             return CGSize(width: 200, height: 100)
-        case .Square:
+        case .square:
             return CGSize(width: 200, height: 200)
+        case .longRectangle:
+            return CGSize(width: 300, height: 100)
         }
     }
+}
+
+enum ButtonType {
+    case more
+    case normal
 }
 
 class MainViewController: UIViewController {
@@ -47,15 +55,18 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: MoviesTableViewCell.identifier)
+            as? MoviesTableViewCell else { return UITableViewCell() }
+
         if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: MoviesTableViewCell.identifier) as! MoviesTableViewCell
-            cell.cellType = CollectionViewCellType.Square
-            return cell
+            cell.cellType = CollectionViewCellType.square
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: MoviesTableViewCell.identifier) as! MoviesTableViewCell
-            cell.cellType = CollectionViewCellType.Rectangle
-            return cell
+            cell.cellType = CollectionViewCellType.rectangle
+            cell.detailsButtonType = .more
+            cell.detailsButton.addTarget(self, action: #selector(didTapDetailsMoreButton(_:)), for: .touchUpInside)
         }
+        return cell
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -63,10 +74,20 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         // 8 + 27 + 8 + 8 = 51
 
         if indexPath.row == 0 {
-            return CollectionViewCellType.Square.size.height + 51
+            return CollectionViewCellType.square.size.height + 51
         } else {
-            return CollectionViewCellType.Rectangle.size.height + 51
+            return CollectionViewCellType.rectangle.size.height + 51
         }
+    }
+
+    @objc private func didTapDetailsMoreButton(_ sender: UIButton) {
+        let movieListViewController = MovieListViewController.instantiate()
+
+        movieListViewController.view.frame.size.height = view.frame.height
+
+        view.addSubview(movieListViewController.view)
+        addChild(movieListViewController)
+        movieListViewController.didMove(toParent: self)
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

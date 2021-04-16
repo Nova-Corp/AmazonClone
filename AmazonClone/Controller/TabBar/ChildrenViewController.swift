@@ -31,4 +31,3 @@ class PaperPlaneViewController: UIViewController {
         super.viewDidLoad()
     }
 }
-

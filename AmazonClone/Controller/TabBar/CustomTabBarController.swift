@@ -25,6 +25,21 @@ class CustomTabBarController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        DispatchQueue.main.async { [weak self] in
+            self?.selectedTabItem(is: self!.selectedIndex + 1)
+        }
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        UIStatusBarStyle.lightContent
+    }
+
+    @IBAction func didTapTabBarItem(_ sender: UIButton) {
+        selectedTabItem(is: sender.tag)
+    }
+
+    private func selectedTabItem(is index: Int) {
+
         let homeVC = MainViewController.instantiate()
         let findVC = CloudViewController.instantiate()
         let downloadVC = FolderViewController.instantiate()
@@ -46,31 +61,17 @@ class CustomTabBarController: UIViewController {
             TabItem(itemTitle: "My Stuff",
                     defaultImage: #imageLiteral(resourceName: "user"),
                     selectedImage: #imageLiteral(resourceName: "user"),
-                    viewController: myStuffVC),
+                    viewController: myStuffVC)
         ]
 
-        DispatchQueue.main.async { [weak self] in
-            self?.selectedTabItem(is: self!.selectedIndex + 1)
-        }
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        UIStatusBarStyle.lightContent
-    }
+        for item in 1 ... tabItems.count {
+            let tabItem = view.viewWithTag(item) as? UIButton
 
-    @IBAction func didTapTabBarItem(_ sender: UIButton) {
-        selectedTabItem(is: sender.tag)
-    }
-
-    private func selectedTabItem(is index: Int) {
-        for i in 1 ... tabItems.count {
-            let tabItem = view.viewWithTag(i) as? UIButton
-
-            if index == i {
-                tabItem?.setImage(tabItems[i - 1].selectedImage, for: .normal)
+            if index == item {
+                tabItem?.setImage(tabItems[item - 1].selectedImage, for: .normal)
                 tabItem?.setTitleColor(#colorLiteral(red: 0.2449563742, green: 0.5731687546, blue: 0.6908303499, alpha: 1), for: .normal)
             } else {
-                tabItem?.setImage(tabItems[i - 1].defaultImage, for: .normal)
+                tabItem?.setImage(tabItems[item - 1].defaultImage, for: .normal)
                 tabItem?.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
             }
         }

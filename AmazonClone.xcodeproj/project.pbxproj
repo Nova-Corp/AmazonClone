@@ -31,6 +31,8 @@
 		847C472E26256048002274DD /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C472726256048002274DD /* String+Extension.swift */; };
 		847C472F26256048002274DD /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C472826256048002274DD /* UIImageView+Extension.swift */; };
 		847C473026256048002274DD /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C472926256048002274DD /* UITableViewCell+Extension.swift */; };
+		84890D0D262953C700D4909F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 84890D0C262953C600D4909F /* .swiftlint.yml */; };
+		84AA5FAA2627FB0600261771 /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA5FA92627FB0600261771 /* MovieListViewController.swift */; };
 		84D7AF68262564F700B65657 /* ChildrenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7AF67262564F700B65657 /* ChildrenViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +84,8 @@
 		847C472726256048002274DD /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		847C472826256048002274DD /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		847C472926256048002274DD /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
+		84890D0C262953C600D4909F /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
+		84AA5FA92627FB0600261771 /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
 		84D7AF67262564F700B65657 /* ChildrenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildrenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -214,6 +218,7 @@
 		847C471E26255869002274DD /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				84890D0B262952B900D4909F /* Support */,
 				847C47222625602F002274DD /* Extension */,
 				847C46F726255822002274DD /* Assets.xcassets */,
 				847C46FC26255822002274DD /* Info.plist */,
@@ -247,6 +252,7 @@
 				8444EB652626FE52004293F6 /* TableViewCells */,
 				842FF5A52625AD0900F597A4 /* TabBar */,
 				842FF5AA2625CED300F597A4 /* MainViewController */,
+				84AA5FA92627FB0600261771 /* MovieListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -267,6 +273,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		84890D0B262952B900D4909F /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				84890D0C262953C600D4909F /* .swiftlint.yml */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -274,6 +288,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 847C471526255823002274DD /* Build configuration list for PBXNativeTarget "AmazonClone" */;
 			buildPhases = (
+				84890D0A26294BB500D4909F /* ShellScript */,
 				847C46E42625581E002274DD /* Sources */,
 				847C46E52625581E002274DD /* Frameworks */,
 				847C46E62625581E002274DD /* Resources */,
@@ -371,6 +386,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84890D0D262953C700D4909F /* .swiftlint.yml in Resources */,
 				8444EB6F2627017B004293F6 /* MoviePosterCollectionViewCell.xib in Resources */,
 				847C46FB26255822002274DD /* LaunchScreen.storyboard in Resources */,
 				847C46F826255822002274DD /* Assets.xcassets in Resources */,
@@ -395,6 +411,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		84890D0A26294BB500D4909F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint autocorrect\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		847C46E42625581E002274DD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -411,6 +447,7 @@
 				842FF5A92625AE3E00F597A4 /* CustomSegmentedControl.swift in Sources */,
 				84D7AF68262564F700B65657 /* ChildrenViewController.swift in Sources */,
 				847C472A26256048002274DD /* UIViewController+Extension.swift in Sources */,
+				84AA5FAA2627FB0600261771 /* MovieListViewController.swift in Sources */,
 				847C472D26256048002274DD /* UIButton+Extension.swift in Sources */,
 				8444EB7526272D8C004293F6 /* UIView+Extension.swift in Sources */,
 				847C472B26256048002274DD /* CardView.swift in Sources */,

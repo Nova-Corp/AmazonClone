@@ -40,20 +40,18 @@ class RoundedButton: UIButton {
 
 @IBDesignable
 class ButtonWithBelowLabel: UIButton {
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         if let imageView = self.imageView {
-            imageView.frame.origin.x = (self.bounds.size.width - imageView.frame.size.width) / 2.0
+            imageView.frame.origin.x = (bounds.size.width - imageView.frame.size.width) / 2.0
             imageView.frame.origin.y = 0.0
         }
         if let titleLabel = self.titleLabel {
-            titleLabel.frame.origin.x = (self.bounds.size.width - titleLabel.frame.size.width) / 2.0
-            titleLabel.frame.origin.y = self.bounds.size.height - titleLabel.frame.size.height
+            titleLabel.frame.origin.x = (bounds.size.width - titleLabel.frame.size.width) / 2.0
+            titleLabel.frame.origin.y = bounds.size.height - titleLabel.frame.size.height
         }
     }
 }
-
 
 extension UIButton {
     // 0 - .scaleToFill
@@ -73,7 +71,12 @@ extension UIButton {
         }
     }
 
+    func horizontalTitle(with image: UIImage, space: CGFloat) {
+        setImage(image, for: .normal)
+        imageView?.translatesAutoresizingMaskIntoConstraints = false
+        imageView?.centerYAnchor.constraint(equalTo: centerYAnchor,
+                                            constant: 0.0).isActive = true
+        imageView?.trailingAnchor.constraint(equalTo: trailingAnchor,
+                                             constant: -space + imageView!.frame.width).isActive = true
+    }
 }
-
-
-
